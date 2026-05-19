@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Paradise Residency - Our Rooms</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!-- [Previous navbar section remains unchanged] -->
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">
+                <i class="bi bi-house-door-fill text-warning me-2"></i>
+                SS Paradise Residency
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html"><i class="bi bi-house me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rooms"><i class="bi bi-building me-1"></i>Our Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact"><i class="bi bi-envelope me-1"></i>Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+919043064183">
+                            <i class="bi bi-telephone-fill me-1"></i>Call Now
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 76px;">
+        
+            
+        
+
+        
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Our Rooms</h1>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <form id="roomFilterForm" class="row g-3">
+                <div class="col-md-3">
+                    <label for="checkIn" class="form-label">Check-in Date</label>
+                    <input type="date" class="form-control" id="checkIn" name="check_in" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="checkOut" class="form-label">Check-out Date</label>
+                    <input type="date" class="form-control" id="checkOut" name="check_out" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="roomFilter" class="form-label">Search by name or type</label>
+                    <input type="text" id="roomFilter" class="form-control" placeholder="Search rooms...">
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-2"></i>Check Availability
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="availabilityCounter" class="alert alert-info mb-4">
+        Showing all available rooms
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Room type</th>
+                    <th>Number of guests</th>
+                    <th>Today's Price</th>
+                    <th>Your choices</th>
+                    <th>Select Rooms</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+                <tr class="room-item" data-room-id="1" data-room-type="single">
+                    <td>
+                        <h5>Deluxe Single Room</h5>
+                        <p class="room-type text-muted mb-1">Single</p>
+                        <div class="mb-2">
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                            <span class="ms-1">0.0 (0)</span>
+                        </div>
+                        <small class="text-danger rooms-left">
+                            <i class="bi bi-exclamation-circle"></i>
+                            Only 6 rooms of this type left
+                        </small>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-person me-1"></i>
+                            1 Guests
+                        </div>
+                        <small class="text-muted">Comfortable single occupancy room with modern amenities including air conditioning, high-speed WiFi,...</small>
+                    </td>
+                    <td>
+                        <div class="price-container">
+                            <span class="original-price text-muted text-decoration-line-through">
+                                ₹1650.00
+                            </span>
+                            <div class="current-price h5 mb-0">
+                                ₹1500.00
+                                <span class="badge bg-primary genius-badge">
+                                    <i class="bi bi-star-fill"></i> Genius
+                                </span>
+                            </div>
+                            <small class="text-success">10% off today</small>
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <i class="bi bi-cup-hot text-success me-2"></i>
+                                Breakfast ₹25 (optional)
+                            </li>
+                            <li>
+                                <i class="bi bi-calendar-check text-success me-2"></i>
+                                Free cancellation before Nov 20, 2024
+                            </li>
+                            <li>
+                                <i class="bi bi-credit-card text-success me-2"></i>
+                                No prepayment needed
+                            </li>
+                        </ul>
+                        
+                        <div class="amenities mt-2">
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Air Conditioning
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Free Wi-Fi
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>LED TV
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Attached Bathroom
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Hot Water
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Room Service
+                            </span>
+                            
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column align-items-end">
+                            <select class="form-select mb-2 room-count" style="width: 80px;">
+                                
+                                <option value="0">0</option>
+                                
+                                <option value="1">1</option>
+                                
+                                <option value="2">2</option>
+                                
+                                <option value="3">3</option>
+                                
+                                <option value="4">4</option>
+                                
+                                <option value="5">5</option>
+                                
+                                <option value="6">6</option>
+                                
+                            </select>
+                            <a href="/room/1" class="btn btn-sm btn-outline-primary mb-1">
+                                View Details
+                            </a>
+                            <a href="tel:+919043064183" class="btn btn-sm btn-primary">
+                                <i class="bi bi-telephone-fill me-1"></i>Call to Book
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                
+                
+                
+                <tr class="room-item" data-room-id="2" data-room-type="double">
+                    <td>
+                        <h5>Premium Double Room</h5>
+                        <p class="room-type text-muted mb-1">Double</p>
+                        <div class="mb-2">
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                                
+                                    <i class="bi bi-star text-warning"></i>
+                                
+                            
+                            <span class="ms-1">0.0 (0)</span>
+                        </div>
+                        <small class="text-danger rooms-left">
+                            <i class="bi bi-exclamation-circle"></i>
+                            Only 6 rooms of this type left
+                        </small>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-person me-1"></i>
+                            2 Guests
+                        </div>
+                        <small class="text-muted">Spacious room with two comfortable beds and modern amenities including air conditioning, high-speed ...</small>
+                    </td>
+                    <td>
+                        <div class="price-container">
+                            <span class="original-price text-muted text-decoration-line-through">
+                                ₹2750.00
+                            </span>
+                            <div class="current-price h5 mb-0">
+                                ₹2500.00
+                                <span class="badge bg-primary genius-badge">
+                                    <i class="bi bi-star-fill"></i> Genius
+                                </span>
+                            </div>
+                            <small class="text-success">10% off today</small>
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <i class="bi bi-cup-hot text-success me-2"></i>
+                                Breakfast ₹25 (optional)
+                            </li>
+                            <li>
+                                <i class="bi bi-calendar-check text-success me-2"></i>
+                                Free cancellation before Nov 20, 2024
+                            </li>
+                            <li>
+                                <i class="bi bi-credit-card text-success me-2"></i>
+                                No prepayment needed
+                            </li>
+                        </ul>
+                        
+                        <div class="amenities mt-2">
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Air Conditioning
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Free Wi-Fi
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>LED TV
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Attached Bathroom
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Hot Water
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Room Service
+                            </span>
+                            
+                            <span class="badge bg-secondary me-1">
+                                <i class="bi bi-check-circle me-1"></i>Mini Fridge
+                            </span>
+                            
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column align-items-end">
+                            <select class="form-select mb-2 room-count" style="width: 80px;">
+                                
+                                <option value="0">0</option>
+                                
+                                <option value="1">1</option>
+                                
+                                <option value="2">2</option>
+                                
+                                <option value="3">3</option>
+                                
+                                <option value="4">4</option>
+                                
+                                <option value="5">5</option>
+                                
+                                <option value="6">6</option>
+                                
+                            </select>
+                            <a href="/room/2" class="btn btn-sm btn-outline-primary mb-1">
+                                View Details
+                            </a>
+                            <a href="tel:+919043064183" class="btn btn-sm btn-primary">
+                                <i class="bi bi-telephone-fill me-1"></i>Call to Book
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    </div>
+
+    <footer class="footer mt-auto py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3 text-warning">SS Paradise Residency</h5>
+                    <p class="mb-0 text-light">Experience luxury and comfort in the heart of Tiruvannamalai.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3 text-warning">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/rooms" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-2"></i>Our Rooms</a></li>
+                        <li><a href="/contact" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-2"></i>Contact Us</a></li>
+                        <li><a href="/terms" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-2"></i>Terms of Service</a></li>
+                        <li><a href="/privacy" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-2"></i>Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3 text-warning">Contact Info</h5>
+                    <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>ssparadisehotels@gmail.com</p>
+                    <p class="mb-0"><i class="bi bi-telephone-fill me-2"></i>+91 904-306-4183</p>
+                    <p class="mb-0"><i class="bi bi-whatsapp me-2"></i>+91 904-306-4183</p>
+                    <p class="mt-2"><small>No. 1/1, 2nd Street, VOC Nagar, Near Arunachaleswarar Temple, Tiruvannamalai, Tamil Nadu 606603</small></p>
+                </div>
+            </div>
+            <hr class="my-4 border-warning">
+            <div class="text-center text-light">
+                <small>&copy; 2026 SS Paradise Residency. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const roomFilterForm = document.getElementById('roomFilterForm');
+    const roomFilter = document.getElementById('roomFilter');
+    const checkIn = document.getElementById('checkIn');
+    const checkOut = document.getElementById('checkOut');
+    const availabilityCounter = document.getElementById('availabilityCounter');
+    const roomItems = document.querySelectorAll('.room-item');
+    
+    // Set minimum dates
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    checkIn.min = today.toISOString().split('T')[0];
+    checkIn.value = today.toISOString().split('T')[0];
+    checkOut.min = tomorrow.toISOString().split('T')[0];
+    checkOut.value = tomorrow.toISOString().split('T')[0];
+    
+    // Update checkout min date when checkin changes
+    checkIn.addEventListener('change', function() {
+        const selectedDate = new Date(this.value);
+        const nextDay = new Date(selectedDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+        checkOut.min = nextDay.toISOString().split('T')[0];
+        
+        if (checkOut.value && new Date(checkOut.value) <= selectedDate) {
+            checkOut.value = nextDay.toISOString().split('T')[0];
+        }
+    });
+
+    roomFilterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        try {
+            const response = await fetch('/api/check-room-availability', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    check_in: checkIn.value,
+                    check_out: checkOut.value
+                })
+            });
+
+            const data = await response.json();
+            
+            roomItems.forEach(item => {
+                const roomId = item.getAttribute('data-room-id');
+                
+                if (data.available_rooms.includes(parseInt(roomId))) {
+                    item.style.display = 'table-row';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            const visibleRooms = document.querySelectorAll('.room-item[style="display: table-row"]').length;
+            availabilityCounter.textContent = `${visibleRooms} room${visibleRooms !== 1 ? 's' : ''} available for selected dates`;
+            
+        } catch (error) {
+            console.error('Error:', error);
+            availabilityCounter.textContent = 'Error checking room availability';
+        }
+    });
+
+    // Text-based filtering
+    roomFilter.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        let visibleCount = 0;
+
+        roomItems.forEach(item => {
+            if (item.style.display !== 'none') { // Only filter visible items (not filtered by date)
+                const roomName = item.querySelector('h5').textContent.toLowerCase();
+                const roomType = item.querySelector('.room-type').textContent.toLowerCase();
+                
+                if (roomName.includes(searchTerm) || roomType.includes(searchTerm)) {
+                    item.style.display = 'table-row';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+
+        if (!this.value) {
+            visibleCount = document.querySelectorAll('.room-item[style="display: table-row"]').length;
+        }
+        
+        availabilityCounter.textContent = `${visibleCount} room${visibleCount !== 1 ? 's' : ''} available`;
+    });
+});
+</script>
+
+</body>
+</html>
