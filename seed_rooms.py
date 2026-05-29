@@ -11,7 +11,7 @@ def seed_rooms():
             name="Deluxe Single Room",
             description="Comfortable single occupancy room with modern amenities including air conditioning, high-speed WiFi, LED TV, and an attached bathroom with hot water. Perfect for solo travelers seeking comfort and convenience.",
             price=1500,
-            capacity=1,
+            capacity=2,
             room_type="Single",
             total_rooms=6,  # Set to 6 as requested
             image_url="/static/image/single_room.jpg",
@@ -23,7 +23,7 @@ def seed_rooms():
             name="Premium Double Room",
             description="Spacious room with two comfortable beds and modern amenities including air conditioning, high-speed WiFi, LED TV, and an attached bathroom with hot water. Ideal for couples or friends traveling together.",
             price=2500,
-            capacity=2,
+            capacity=4,
             room_type="Double",
             total_rooms=6,  # Set to 6 as requested
             image_url="/static/image/double_room.jpg",
