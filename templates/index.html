@@ -10,7 +10,7 @@
                 <h2>Experience Our Luxurious Rooms in Tiruvannamalai</h2>
                 <p>SS Paradise Residency is a newly established sanctuary offering luxurious A/C rooms in
                     Tiruvannamalai, India.</p>
-                <a href="/rooms" class="btn btn-primary btn-lg">View Our Rooms</a>
+                <a href="#featured-rooms" class="btn btn-primary btn-lg">View Our Rooms</a>
             </div>
             <div class="col-lg-5">
                 <div class="card bg-dark bg-opacity-75 border-secondary">
@@ -41,13 +41,11 @@
     </div>
 </div>
 
-<div class="container section-spacing">
-
-
-    <h2 class="text-center mb-4">Featured Rooms</h2>
+<div class="container section-spacing" id="featured-rooms">
+    <h2 class="text-center mb-3">Featured Rooms</h2>
     <div class="row">
         {% for room in featured_rooms %}
-        <div class="col-md-6 col-lg-3 mb-4">
+        <div class="col-md-6 mb-4">
             <div class="card room-card h-100">
                 <img src="{{ room.image_url }}" class="card-img-top room-image" alt="{{ room.name }}">
                 <div class="card-body">
