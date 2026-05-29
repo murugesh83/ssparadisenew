@@ -23,16 +23,6 @@
                     <td>
                         <h5>{{ room.name }}</h5>
                         <p class="room-type text-muted mb-1">{{ room.room_type }}</p>
-                        <div class="mb-2">
-                            {% for i in range(5) %}
-                                {% if i < room.average_rating|round(0, 'floor') %}
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                {% else %}
-                                    <i class="bi bi-star text-warning"></i>
-                                {% endif %}
-                            {% endfor %}
-                            <span class="ms-1">{{ "%.1f"|format(room.average_rating) }} ({{ room.reviews|length }})</span>
-                        </div>
                         <small class="text-success">
                             <i class="bi bi-check-circle"></i> Available
                         </small>
@@ -46,23 +36,16 @@
                     </td>
                     <td>
                         <div class="price-container">
-                            <span class="original-price text-muted text-decoration-line-through">
-                                ₹{{ "%.2f"|format(room.price * 1.1) }}
-                            </span>
                             <div class="current-price h5 mb-0">
                                 ₹{{ "%.2f"|format(room.price) }}
-                                <span class="badge bg-primary genius-badge">
-                                    <i class="bi bi-star-fill"></i> Genius
-                                </span>
                             </div>
-                            <small class="text-success">10% off today</small>
                         </div>
                     </td>
                     <td>
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <i class="bi bi-cup-hot text-success me-2"></i>
-                                Breakfast ₹25 (optional)
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Free cancellation
                             </li>
                             <li>
                                 <i class="bi bi-credit-card text-success me-2"></i>
