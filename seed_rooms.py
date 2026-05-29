@@ -14,7 +14,7 @@ def seed_rooms():
             capacity=1,
             room_type="Single",
             total_rooms=6,  # Set to 6 as requested
-            image_url="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800",
+            image_url="/static/image/single_room.jpg",
             amenities=["Air Conditioning", "Free Wi-Fi", "LED TV", "Attached Bathroom", "Hot Water", "Room Service"]
         )
         
@@ -26,7 +26,7 @@ def seed_rooms():
             capacity=2,
             room_type="Double",
             total_rooms=6,  # Set to 6 as requested
-            image_url="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=800",
+            image_url="/static/image/double_room.jpg",
             amenities=["Air Conditioning", "Free Wi-Fi", "LED TV", "Attached Bathroom", "Hot Water", "Room Service", "Mini Fridge"]
         )
         
