@@ -5,34 +5,6 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center mb-4">Our Rooms</h1>
-    
-    <div class="card mb-4">
-        <div class="card-body">
-            <form id="roomFilterForm" class="row g-3">
-                <div class="col-md-3">
-                    <label for="checkIn" class="form-label">Check-in Date</label>
-                    <input type="date" class="form-control" id="checkIn" name="check_in" required>
-                </div>
-                <div class="col-md-3">
-                    <label for="checkOut" class="form-label">Check-out Date</label>
-                    <input type="date" class="form-control" id="checkOut" name="check_out" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="roomFilter" class="form-label">Search by name or type</label>
-                    <input type="text" id="roomFilter" class="form-control" placeholder="Search rooms...">
-                </div>
-                <div class="col-md-2 d-flex align-items-end">
-                    <button type="submit" class="btn btn-primary w-100">
-                        <i class="bi bi-search me-2"></i>Check Availability
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="availabilityCounter" class="alert alert-info mb-4">
-        Showing all available rooms
-    </div>
 
     <div class="table-responsive">
         <table class="table table-hover">
@@ -47,8 +19,7 @@
             </thead>
             <tbody>
                 {% for room in rooms %}
-                {% if room.total_rooms > room.bookings|selectattr('status', 'equalto', 'confirmed')|list|length %}
-                <tr class="room-item" data-room-id="{{ room.id }}" data-room-type="{{ room.room_type.lower() }}">
+                <tr>
                     <td>
                         <h5>{{ room.name }}</h5>
                         <p class="room-type text-muted mb-1">{{ room.room_type }}</p>
@@ -62,9 +33,8 @@
                             {% endfor %}
                             <span class="ms-1">{{ "%.1f"|format(room.average_rating) }} ({{ room.reviews|length }})</span>
                         </div>
-                        <small class="text-danger rooms-left">
-                            <i class="bi bi-exclamation-circle"></i>
-                            Only {{ room.total_rooms - room.bookings|selectattr('status', 'equalto', 'confirmed')|list|length }} room{{ 's' if (room.total_rooms - room.bookings|selectattr('status', 'equalto', 'confirmed')|list|length) != 1 else '' }} of this type left
+                        <small class="text-success">
+                            <i class="bi bi-check-circle"></i> Available
                         </small>
                     </td>
                     <td>
@@ -95,10 +65,6 @@
                                 Breakfast ₹25 (optional)
                             </li>
                             <li>
-                                <i class="bi bi-calendar-check text-success me-2"></i>
-                                Free cancellation before Nov 20, 2024
-                            </li>
-                            <li>
                                 <i class="bi bi-credit-card text-success me-2"></i>
                                 No prepayment needed
                             </li>
@@ -115,11 +81,6 @@
                     </td>
                     <td>
                         <div class="d-flex flex-column align-items-end">
-                            <select class="form-select mb-2 room-count" style="width: 80px;">
-                                {% for i in range(room.total_rooms - room.bookings|selectattr('status', 'equalto', 'confirmed')|list|length + 1) %}
-                                <option value="{{ i }}">{{ i }}</option>
-                                {% endfor %}
-                            </select>
                             <a href="{{ url_for('room_detail', room_id=room.id) }}" class="btn btn-sm btn-outline-primary mb-1">
                                 View Details
                             </a>
@@ -129,108 +90,9 @@
                         </div>
                     </td>
                 </tr>
-                {% endif %}
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const roomFilterForm = document.getElementById('roomFilterForm');
-    const roomFilter = document.getElementById('roomFilter');
-    const checkIn = document.getElementById('checkIn');
-    const checkOut = document.getElementById('checkOut');
-    const availabilityCounter = document.getElementById('availabilityCounter');
-    const roomItems = document.querySelectorAll('.room-item');
-    
-    // Set minimum dates
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    
-    checkIn.min = today.toISOString().split('T')[0];
-    checkIn.value = today.toISOString().split('T')[0];
-    checkOut.min = tomorrow.toISOString().split('T')[0];
-    checkOut.value = tomorrow.toISOString().split('T')[0];
-    
-    // Update checkout min date when checkin changes
-    checkIn.addEventListener('change', function() {
-        const selectedDate = new Date(this.value);
-        const nextDay = new Date(selectedDate);
-        nextDay.setDate(nextDay.getDate() + 1);
-        checkOut.min = nextDay.toISOString().split('T')[0];
-        
-        if (checkOut.value && new Date(checkOut.value) <= selectedDate) {
-            checkOut.value = nextDay.toISOString().split('T')[0];
-        }
-    });
-
-    roomFilterForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        try {
-            const response = await fetch('/api/check-room-availability', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    check_in: checkIn.value,
-                    check_out: checkOut.value
-                })
-            });
-
-            const data = await response.json();
-            
-            roomItems.forEach(item => {
-                const roomId = item.getAttribute('data-room-id');
-                
-                if (data.available_rooms.includes(parseInt(roomId))) {
-                    item.style.display = 'table-row';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            const visibleRooms = document.querySelectorAll('.room-item[style="display: table-row"]').length;
-            availabilityCounter.textContent = `${visibleRooms} room${visibleRooms !== 1 ? 's' : ''} available for selected dates`;
-            
-        } catch (error) {
-            console.error('Error:', error);
-            availabilityCounter.textContent = 'Error checking room availability';
-        }
-    });
-
-    // Text-based filtering
-    roomFilter.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        let visibleCount = 0;
-
-        roomItems.forEach(item => {
-            if (item.style.display !== 'none') { // Only filter visible items (not filtered by date)
-                const roomName = item.querySelector('h5').textContent.toLowerCase();
-                const roomType = item.querySelector('.room-type').textContent.toLowerCase();
-                
-                if (roomName.includes(searchTerm) || roomType.includes(searchTerm)) {
-                    item.style.display = 'table-row';
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
-                }
-            }
-        });
-
-        if (!this.value) {
-            visibleCount = document.querySelectorAll('.room-item[style="display: table-row"]').length;
-        }
-        
-        availabilityCounter.textContent = `${visibleCount} room${visibleCount !== 1 ? 's' : ''} available`;
-    });
-});
-</script>
 {% endblock %}
