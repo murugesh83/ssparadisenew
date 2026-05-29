@@ -64,9 +64,9 @@
                     </td>
                     <td>
                         <div class="d-grid gap-1" style="width: 140px; margin: 0 auto;">
-                            <a href="{{ url_for('contact') }}" class="btn btn-sm btn-success">
+                            <button type="button" class="btn btn-sm btn-success" onclick="openBookingModal('{{ room.name }}', '{{ room.room_type }}', '{{ room.capacity }}', '{{ room.price }}')">
                                 <i class="bi bi-globe me-1"></i>Book Online
-                            </a>
+                            </button>
                             <a href="tel:+919043064183" class="btn btn-sm btn-primary">
                                 <i class="bi bi-telephone-fill me-1"></i>Call to Book
                             </a>

@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="d-flex gap-2">
                                     <a href="{{ url_for('room_detail', room_id=room.id) }}" class="btn btn-outline-primary btn-sm flex-fill">View Details</a>
-                                    <a href="{{ url_for('contact') }}" class="btn btn-success btn-sm flex-fill"><i class="bi bi-globe me-1"></i>Book Online</a>
+                                    <button type="button" class="btn btn-success btn-sm flex-fill" onclick="openBookingModal('{{ room.name }}', '{{ room.room_type }}', '{{ room.capacity }}', '{{ room.price }}')"><i class="bi bi-globe me-1"></i>Book Online</button>
                                     <a href="tel:+919043064183" class="btn btn-primary btn-sm flex-fill"><i class="bi bi-telephone-fill me-1"></i>Call to Book</a>
                                 </div>
                             </div>

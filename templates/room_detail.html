@@ -112,6 +112,9 @@
                         <li class="mb-2"><strong>Capacity:</strong> {{ room.capacity }} Guests</li>
                         <li class="mb-2"><strong>Room Type:</strong> {{ room.room_type }}</li>
                     </ul>
+                    <button type="button" class="btn btn-success btn-lg w-100 mb-2" onclick="openBookingModal('{{ room.name }}', '{{ room.room_type }}', '{{ room.capacity }}', '{{ room.price }}')">
+                        <i class="bi bi-globe me-2"></i>Book Online
+                    </button>
                     <a href="tel:+919043064183" class="btn btn-primary btn-lg w-100"><i class="bi bi-telephone-fill me-2"></i>Call to Book</a>
                 </div>
             </div>
