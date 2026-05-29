@@ -7,7 +7,7 @@
     <h1 class="text-center mb-4">Our Rooms</h1>
 
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover text-center align-middle">
             <thead>
                 <tr>
                     <th>Room type</th>
@@ -28,7 +28,7 @@
                         </small>
                     </td>
                     <td>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
                             <i class="bi bi-person me-1"></i>
                             {{ room.capacity }} Guests
                         </div>
@@ -63,7 +63,7 @@
                         {% endif %}
                     </td>
                     <td>
-                        <div class="d-flex flex-column align-items-end">
+                        <div class="d-flex flex-column align-items-center">
                             <a href="{{ url_for('room_detail', room_id=room.id) }}" class="btn btn-sm btn-outline-primary mb-1">
                                 View Details
                             </a>
